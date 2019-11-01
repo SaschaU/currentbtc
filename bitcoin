@@ -1,0 +1,18 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*-
+
+import os
+import urllib2
+import requests
+import json
+url = "https://api.coinbase.com/v2/prices/spot?currency=EUR"
+
+data = {}
+BitCoin = requests.get(url, data=data).text
+j = json.loads(BitCoin)
+
+currency = j["data"]["currency"]
+actually = j["data"]["amount"]
+print "Bitcoin Preis:" + str(actually) + " " + str(currency)
+
+print 
